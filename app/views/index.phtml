@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+<?php
+ if ($_SESSION['auth']){
+ include 'layouts/adminhead.phtml';
+} else {
+ include 'layouts/userhead.phtml' ;
+}
+
+?>
+  </head>
+
+<?php
+ if ($_SESSION['auth']){ ?>
+<body class="hold-transition sidebar-mini layout-fixed">
+<?php } else { ?>
+<body class="hold-transition layout-top-nav">
+<?php } ?>
+<div class="wrapper">
+
+<?php
+ if ($_SESSION['auth']){
+     include 'layouts/admin.phtml' ;
+} else {
+     include 'layouts/usernav.phtml' ;
+}
+?>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" id="app">
+
+        <?= $this->getContent(); ?>
+
+
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.0.0-rc.3
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+
+
+<?php
+ if ($_SESSION['auth']){
+     include 'layouts/adminscript.phtml' ;
+} else {
+     include 'layouts/userscript.phtml' ;
+}
+?>
+
+</body>
+</html>
